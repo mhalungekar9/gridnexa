@@ -12,3 +12,6 @@ pnpm add @gridnexa/react
 pnpm add @gridnexa/vue
 pnpm add @gridnexa/angular
 pnpm add @gridnexa/javascript
+```
+
+Install only the package for your framework.
