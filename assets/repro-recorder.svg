@@ -1,0 +1,43 @@
+
+<svg width="1400" height="780" viewBox="0 0 1400 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="780" rx="30" fill="#0b1220"/>
+  <text x="80" y="96" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="50" font-weight="900">Repro Recorder</text>
+  <text x="82" y="140" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22">Turn hard-to-debug grid states into a shareable JSON snapshot.</text>
+  <g>
+    <rect x="90" y="220" width="270" height="150" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <text x="126" y="270" fill="#93c5fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="900">1. User actions</text>
+    <text x="126" y="316" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">Filter, edit, resize,</text>
+    <text x="126" y="348" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">page, undo, redo.</text>
+  </g>
+  <g>
+    <rect x="430" y="220" width="270" height="150" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <text x="466" y="270" fill="#93c5fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="900">2. Capture state</text>
+    <text x="466" y="316" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">Rows, columns,</text>
+    <text x="466" y="348" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">filters, selection.</text>
+  </g>
+  <g>
+    <rect x="770" y="220" width="270" height="150" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <text x="806" y="270" fill="#93c5fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="900">3. Export JSON</text>
+    <text x="806" y="316" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">Download a compact</text>
+    <text x="806" y="348" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">repro snapshot.</text>
+  </g>
+  <g>
+    <rect x="1110" y="220" width="220" height="150" rx="20" fill="#2563eb"/>
+    <text x="1142" y="270" fill="#fff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="900">4. Fix faster</text>
+    <text x="1142" y="316" fill="#dbeafe" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">Share a real</text>
+    <text x="1142" y="348" fill="#dbeafe" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">bug snapshot.</text>
+  </g>
+  <g stroke="#60a5fa" stroke-width="4" stroke-linecap="round">
+    <line x1="370" y1="295" x2="420" y2="295"/>
+    <line x1="710" y1="295" x2="760" y2="295"/>
+    <line x1="1050" y1="295" x2="1100" y2="295"/>
+  </g>
+  <rect x="170" y="460" width="1060" height="210" rx="22" fill="#020617" stroke="#334155" stroke-width="2"/>
+  <text x="210" y="512" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="900">What the snapshot includes</text>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" fill="#e5edf7">
+    <text x="210" y="566">- Sanitized columns and sampled rows</text>
+    <text x="210" y="606">- Filter, sort, page, selection, and column state</text>
+    <text x="720" y="566">- Recent grid action timeline</text>
+    <text x="720" y="606">- Generated React repro snippet</text>
+  </g>
+</svg>
