@@ -1,0 +1,54 @@
+
++<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
++  <rect width="1600" height="900" rx="34" fill="#07101f"/>
++  <text x="80" y="96" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="52" font-weight="900">Why developers choose GridNexa</text>
++  <text x="82" y="142" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="23">A polished multi-framework data grid with app workflows built in.</text>
++  <rect x="80" y="200" width="1440" height="590" rx="24" fill="#0f172a" stroke="#334155" stroke-width="2"/>
++  <rect x="80" y="200" width="1440" height="72" rx="24" fill="#111827"/>
++  <rect x="80" y="248" width="1440" height="24" fill="#111827"/>
++  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="900" fill="#f8fafc">
++    <text x="118" y="245">Feature</text>
++    <text x="520" y="245">GridNexa</text>
++    <text x="760" y="245">AG Grid</text>
++    <text x="980" y="245">MUI X</text>
++    <text x="1194" y="245">TanStack</text>
++    <text x="1390" y="245">Handsontable</text>
++  </g>
++  <g stroke="#26344f" stroke-width="2">
++    <line x1="480" y1="200" x2="480" y2="790"/>
++    <line x1="700" y1="200" x2="700" y2="790"/>
++    <line x1="920" y1="200" x2="920" y2="790"/>
++    <line x1="1140" y1="200" x2="1140" y2="790"/>
++    <line x1="1360" y1="200" x2="1360" y2="790"/>
++    <line x1="80" y1="330" x2="1520" y2="330"/>
++    <line x1="80" y1="388" x2="1520" y2="388"/>
++    <line x1="80" y1="446" x2="1520" y2="446"/>
++    <line x1="80" y1="504" x2="1520" y2="504"/>
++    <line x1="80" y1="562" x2="1520" y2="562"/>
++    <line x1="80" y1="620" x2="1520" y2="620"/>
++    <line x1="80" y1="678" x2="1520" y2="678"/>
++    <line x1="80" y1="736" x2="1520" y2="736"/>
++  </g>
++  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" fill="#e5edf7">
++    <text x="118" y="310">React, Vue, Angular, JS</text>
++    <text x="118" y="368">Styled UI included</text>
++    <text x="118" y="426">Editing and undo/redo</text>
++    <text x="118" y="484">Saved views</text>
++    <text x="118" y="542">Change review</text>
++    <text x="118" y="600">Command palette</text>
++    <text x="118" y="658">Diagnostics panel</text>
++    <text x="118" y="716">One-click repro export</text>
++  </g>
++  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900">
++    <text x="560" y="310" fill="#60a5fa">YES</text><text x="780" y="310" fill="#cbd5e1">YES</text><text x="1010" y="310" fill="#f59e0b">React</text><text x="1210" y="310" fill="#f59e0b">Headless</text><text x="1410" y="310" fill="#cbd5e1">YES</text>
++    <text x="560" y="368" fill="#60a5fa">YES</text><text x="780" y="368" fill="#cbd5e1">YES</text><text x="1008" y="368" fill="#cbd5e1">YES</text><text x="1220" y="368" fill="#f59e0b">NO</text><text x="1410" y="368" fill="#cbd5e1">YES</text>
++    <text x="560" y="426" fill="#60a5fa">YES</text><text x="780" y="426" fill="#cbd5e1">YES</text><text x="1008" y="426" fill="#cbd5e1">YES</text><text x="1198" y="426" fill="#f59e0b">Build</text><text x="1410" y="426" fill="#cbd5e1">YES</text>
++    <text x="560" y="484" fill="#60a5fa">YES</text><text x="768" y="484" fill="#f59e0b">Custom</text><text x="988" y="484" fill="#f59e0b">Custom</text><text x="1198" y="484" fill="#f59e0b">Build</text><text x="1390" y="484" fill="#f59e0b">Custom</text>
++    <text x="560" y="542" fill="#60a5fa">YES</text><text x="768" y="542" fill="#f59e0b">Custom</text><text x="988" y="542" fill="#f59e0b">Custom</text><text x="1198" y="542" fill="#f59e0b">Build</text><text x="1390" y="542" fill="#f59e0b">Custom</text>
++    <text x="560" y="600" fill="#60a5fa">YES</text><text x="768" y="600" fill="#f59e0b">Custom</text><text x="988" y="600" fill="#f59e0b">Custom</text><text x="1198" y="600" fill="#f59e0b">Build</text><text x="1390" y="600" fill="#f59e0b">Custom</text>
++    <text x="560" y="658" fill="#60a5fa">YES</text><text x="768" y="658" fill="#f59e0b">Custom</text><text x="988" y="658" fill="#f59e0b">Custom</text><text x="1198" y="658" fill="#f59e0b">Build</text><text x="1390" y="658" fill="#f59e0b">Custom</text>
++    <text x="560" y="716" fill="#60a5fa">YES</text><text x="768" y="716" fill="#f59e0b">Custom</text><text x="988" y="716" fill="#f59e0b">Custom</text><text x="1198" y="716" fill="#f59e0b">Build</text><text x="1390" y="716" fill="#f59e0b">Custom</text>
++  </g>
++  <rect x="80" y="822" width="362" height="46" rx="14" fill="#2563eb"/>
++  <text x="110" y="852" fill="#fff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900">GridNexa: app workflows included</text>
++</svg>
