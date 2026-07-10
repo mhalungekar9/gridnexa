@@ -1,0 +1,36 @@
+
+<svg width="1400" height="820" viewBox="0 0 1400 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="820" rx="30" fill="#07101f"/>
+  <text x="72" y="92" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="48" font-weight="900">Diagnostics and Repro Export</text>
+  <text x="74" y="136" fill="#cbd5e1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22">Capture grid state, recent actions, sampled rows, and a generated React repro snippet.</text>
+  <rect x="72" y="190" width="580" height="534" rx="22" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="104" y="224" width="516" height="70" rx="14" fill="#111827"/>
+  <text x="132" y="268" fill="#f8fafc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="900">Diagnostics</text>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" fill="#e5edf7">
+    <rect x="104" y="324" width="240" height="58" rx="12" fill="#111827" stroke="#26344f"/><text x="128" y="360">Rows: 100 total</text>
+    <rect x="380" y="324" width="240" height="58" rx="12" fill="#111827" stroke="#26344f"/><text x="404" y="360">Columns: 8</text>
+    <rect x="104" y="404" width="240" height="58" rx="12" fill="#111827" stroke="#26344f"/><text x="128" y="440">Filters: 2</text>
+    <rect x="380" y="404" width="240" height="58" rx="12" fill="#111827" stroke="#26344f"/><text x="404" y="440">Events: 12</text>
+  </g>
+  <rect x="104" y="502" width="516" height="172" rx="14" fill="#050a16" stroke="#26344f"/>
+  <text x="128" y="538" fill="#60a5fa" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900">RECENT ACTIONS</text>
+  <text x="128" y="578" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">filter - Filtered Department</text>
+  <text x="128" y="618" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">edit - Score row 2 changed</text>
+  <text x="128" y="658" fill="#e5edf7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19">undo - Undo applied</text>
+  <rect x="426" y="236" width="166" height="44" rx="10" fill="#2563eb"/>
+  <text x="454" y="265" fill="#fff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900">Export repro</text>
+  <rect x="742" y="190" width="586" height="534" rx="22" fill="#020617" stroke="#334155" stroke-width="2"/>
+  <text x="778" y="238" fill="#93c5fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900">gridnexa-repro.json</text>
+  <g font-family="Consolas, monospace" font-size="18">
+    <text x="778" y="290" fill="#cbd5e1">{</text>
+    <text x="806" y="326" fill="#93c5fd">"schemaVersion"</text><text x="970" y="326" fill="#cbd5e1">: 1,</text>
+    <text x="806" y="362" fill="#93c5fd">"packageName"</text><text x="948" y="362" fill="#cbd5e1">: "@gridnexa/react",</text>
+    <text x="806" y="398" fill="#93c5fd">"counts"</text><text x="900" y="398" fill="#cbd5e1">: { "rows": 100, "columns": 8 },</text>
+    <text x="806" y="434" fill="#93c5fd">"columns"</text><text x="908" y="434" fill="#cbd5e1">: [...],</text>
+    <text x="806" y="470" fill="#93c5fd">"rows"</text><text x="878" y="470" fill="#cbd5e1">: [...],</text>
+    <text x="806" y="506" fill="#93c5fd">"state"</text><text x="888" y="506" fill="#cbd5e1">: { "sortModel": "...", "pageIndex": 1 },</text>
+    <text x="806" y="542" fill="#93c5fd">"events"</text><text x="898" y="542" fill="#cbd5e1">: [...],</text>
+    <text x="806" y="578" fill="#93c5fd">"reactExample"</text><text x="958" y="578" fill="#cbd5e1">: "export default function Repro() ..."</text>
+    <text x="778" y="614" fill="#cbd5e1">}</text>
+  </g>
+</svg>
