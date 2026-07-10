@@ -151,6 +151,14 @@ Links
 Status
 GridNexa is in active development. APIs may evolve as the package improves.
 
+```md
+![GridNexa hero](./assets/gridnexa-hero.svg)
+![GridNexa dark grid](./assets/dark-grid.svg)
+![Diagnostics export](./assets/diagnostics-export.svg)
+![Repro Recorder](./assets/repro-recorder.svg)
+![GridNexa comparison](./assets/comparison.svg)
+```
+
 Feedback
 Use GitHub Issues in this public repo for:
 - bug reports
