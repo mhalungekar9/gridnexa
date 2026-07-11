@@ -1,113 +1,51 @@
+# GridNexa Comparison Guide
 
-# GridNexa Comparison
+GridNexa is a styled, Excel-style data grid for React, Vue, Angular, and framework-free JavaScript. This guide focuses on architectural differences instead of claiming permanent feature parity with fast-moving third-party products.
 
-GridNexa is a developer-first Excel-like data grid for React, Vue, Angular, and JavaScript.
+## GridNexa At A Glance
 
-It is designed for application teams that need a polished grid plus the surrounding workflows developers usually build themselves.
+| Need | GridNexa implementation |
+| --- | --- |
+| Frameworks | React, Vue 3, Angular, and JavaScript packages |
+| UI approach | Styled grid with themes, CSS variables, stable classes, custom icons, and unstyled mode |
+| Spreadsheet workflows | Import, range copy/paste, inline and bulk edit, fill handle, formulas, find/replace, undo/redo |
+| Analysis | Filters, grouping, aggregation, pivoting, summaries, charts, tree data, master/detail |
+| Data quality | Validation, change review, Data Health profiles and issue filtering |
+| State | Presets, saved views, persisted UI-state slices, loading/error/empty overlays |
+| Developer support | Typed API, diagnostics, repro JSON export/import, server-side callbacks |
+| AI | Provider-neutral, server-backed action plans |
 
-## Comparison Table
+## Compared With Enterprise Grids
 
-| Feature | GridNexa | AG Grid | MUI X Data Grid | TanStack Table | Handsontable |
-|---|---:|---:|---:|---:|---:|
-| React support | Yes | Yes | Yes | Yes | Yes |
-| Vue support | Yes | Yes | No main Vue grid | Headless/community | Yes |
-| Angular support | Yes | Yes | No | Headless/community | Yes |
-| Vanilla JavaScript support | Yes | Yes | No | Core/headless | Yes |
-| Styled UI included | Yes | Yes | Yes | No | Yes |
-| Dark theme | Yes | Yes | Yes | Build yourself | Yes |
-| Sorting | Yes | Yes | Yes | Yes | Yes |
-| Filtering | Yes | Yes | Yes | Yes | Yes |
-| Advanced filtering | Yes | Yes | Yes | Build yourself | Yes |
-| Editing | Yes | Yes | Yes | Build yourself | Yes |
-| Undo/redo | Yes | Yes | Yes | Build yourself | Yes |
-| Fill handle | Yes | Yes | Limited/varies | Build yourself | Yes |
-| Column pinning | Yes | Yes | Yes | Build yourself | Yes |
-| Column resize | Yes | Yes | Yes | Build yourself | Yes |
-| Column reorder | Yes | Yes | Yes | Build yourself | Yes |
-| Saved views | Yes | Custom/state APIs | Custom/state APIs | Build yourself | Custom |
-| Change review | Yes | Custom | Custom | Build yourself | Custom |
-| Command palette | Yes | Custom | Custom | Build yourself | Custom |
-| Validation | Yes | Custom | Custom | Build yourself | Custom |
-| Repro export | Yes | Custom | Custom | Build yourself | Custom |
+Mature enterprise grids often offer broader ecosystems, long-established support programs, and specialized enterprise modules. Consider GridNexa when you prefer a smaller app-focused API, multi-framework packages, built-in Data Health and change-review workflows, and portable diagnostics snapshots.
 
-## GridNexa vs AG Grid
+Before choosing, test your actual row counts, accessibility requirements, browser matrix, licensing needs, and required server-side model.
 
-AG Grid is a mature enterprise grid with a very large feature surface.
+## Compared With Component-Library Grids
 
-GridNexa is useful when you want:
+A grid tied to a component system can be the natural choice when the rest of an application already uses that design language. GridNexa is useful when you need the same grid contracts across multiple frameworks or want styling that is not coupled to a particular UI library.
 
-- simpler setup
-- modern app-focused UI
-- multi-framework packages
-- diagnostics and repro export
-- built-in productivity workflows
-- change review and validation without custom wrappers
+## Compared With Headless Tables
 
-## GridNexa vs MUI X Data Grid
+Headless table libraries provide maximum rendering control but generally require the application to assemble its own grid interface and workflows. GridNexa includes headers, cells, editors, filters, panels, toolbar, footer, pagination, import/export, saved views, validation, charts, and diagnostics.
 
-MUI X is excellent for React and Material UI teams.
+Choose a headless approach when custom rendering is the primary requirement. Choose GridNexa when a ready-to-use product grid is more valuable than owning every interaction.
 
-GridNexa is useful when you want:
+## Compared With Spreadsheet Components
 
-- React, Vue, Angular, and JavaScript support
-- a grid not tied to Material UI
-- command palette
-- change review
-- diagnostics
-- repro export
-- app-style workflows out of the box
+Spreadsheet-first components are a strong fit when cell coordinates and workbook-like behavior dominate the product. GridNexa is oriented toward application data: typed row objects, stable row IDs, business validation, review-before-save, server callbacks, grouping, dashboards, and admin/operations workflows.
 
-## GridNexa vs TanStack Table
+## Evaluation Checklist
 
-TanStack Table is headless and very flexible.
+Build a representative proof of concept and verify:
 
-GridNexa is useful when you do not want to build the full grid UI yourself.
+- editing, validation, keyboard, selection, and clipboard behavior
+- import/export formats and formula expectations
+- grouping, pivoting, charts, and server-side operations
+- accessibility and responsive behavior
+- theming and design-system integration
+- performance with realistic data and renderers
+- framework compatibility and upgrade policy
+- licensing, support, and deployment constraints
 
-With TanStack Table, you often build:
-
-- headers
-- body rendering
-- column menus
-- filters
-- pagination UI
-- editing UI
-- toolbar
-- export controls
-- saved views
-- validation
-- diagnostics
-
-GridNexa includes these workflows directly.
-
-## GridNexa vs Handsontable
-
-Handsontable is strong for spreadsheet-style interfaces.
-
-GridNexa is useful when your product is more like:
-
-- admin tool
-- dashboard
-- CRM
-- operations grid
-- finance review tool
-- internal business app
-
-GridNexa focuses on app-style data-grid workflows with diagnostics, change review, command palette, and framework adapters.
-
-## Why Developers Should Consider GridNexa
-
-A production grid is not only a table.
-
-Real apps need:
-
-- data editing
-- validation
-- undo and redo
-- filtering
-- exporting
-- saved state
-- review before save
-- support debugging
-- reproducible bug reports
-
-GridNexa brings these workflows into one package.
+Third-party product capabilities and license tiers change; confirm them in each vendor's current documentation before making a purchasing decision.

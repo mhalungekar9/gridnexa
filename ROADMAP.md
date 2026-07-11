@@ -1,32 +1,31 @@
-
-
-**ROADMAP.md**
-
-```md
 # GridNexa Roadmap
 
 ## Current Focus
 
-- React package stability
-- Vue and Angular parity
-- Better documentation
-- Public demo site
-- Repro Recorder improvements
+- Package stability and framework parity
+- Performance benchmarks and large-data guidance
+- Accessibility and keyboard navigation
+- More examples for Next.js, Vite, Nuxt, and Angular CLI
+- Documentation and public playground improvements
 
 ## Planned
 
-- Import repro snapshot
+- Server-side row-model helpers
 - More advanced Excel-style filters
-- Better keyboard navigation
-- Column formulas UI
-- More themes
-- Performance benchmarks
-- More examples for Next.js, Vite, Nuxt, Angular CLI
+- Additional formula authoring tools
+- More themes and a public theme builder
+- DevTools integrations
+- Expanded chart configuration and export options
 
-## Under Consideration
+## Recently Delivered
 
-- Server-side row model helpers
-- AI-assisted grid commands
-- Visual query builder
-- DevTools extension
-- Public theme builder
+- Excel/CSV/TSV/text/JSON import
+- Clipboard ranges, bulk edit, and find and replace
+- Insight charts with PNG download
+- Data Health profiling and issue filtering
+- Diagnostics snapshot export and import
+- Presets, overlays, saved views, and persisted UI state
+- AI command plans
+- React, Vue, Angular, and JavaScript package parity improvements
+
+Roadmap items may change as APIs and product priorities evolve.

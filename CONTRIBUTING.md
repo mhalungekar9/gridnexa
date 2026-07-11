@@ -1,20 +1,15 @@
-
 # Contributing
 
 GridNexa source is currently developed in a private repository.
 
-This public repository is open for:
-
-- bug reports
-- feature requests
-- documentation feedback
-- examples
-- integration questions
+This public repository accepts bug reports, feature requests, documentation feedback, examples, and integration questions.
 
 Please include:
 
 - package name and version
 - framework and version
 - browser
-- minimal code sample
-- repro JSON if available from Diagnostics → Export repro
+- a minimal code sample
+- a reviewed repro JSON snapshot from **Diagnostics > Export repro**, when available
+
+Do not include secrets or sensitive row data in issues or diagnostics snapshots.

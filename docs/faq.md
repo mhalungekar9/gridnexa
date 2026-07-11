@@ -1,191 +1,69 @@
-
 # FAQ
 
 ## What is GridNexa?
 
-GridNexa is a developer-first Excel-like data grid for React, Vue, Angular, and JavaScript.
-
-It includes editing, filtering, undo/redo, fill handle, export, saved views, change review, validation, diagnostics, and repro export.
-
-## Is GridNexa open source?
-
-GridNexa packages are distributed through npm. The source repository may be private while the project is in active development.
-
-This public repository is used for documentation, feedback, issues, roadmap, and package information.
-
-## Which frameworks are supported?
-
-GridNexa supports:
-
-- React
-- Vue
-- Angular
-- vanilla JavaScript
+GridNexa is an Excel-style data grid for React, Vue, Angular, and JavaScript. It includes editing, import/export, charts, filtering, grouping, pivoting, Data Health, saved views, validation, diagnostics, and repro snapshot import/export.
 
 ## Which package should I install?
 
-React:
-
-```bash
-pnpm add @gridnexa/react
-```
-
-Vue:
-
-```bash
-pnpm add @gridnexa/vue
-```
-
-Angular:
-
-```bash
-pnpm add @gridnexa/angular
-```
-
-JavaScript:
-
-```bash
-pnpm add @gridnexa/javascript
-```
+- React: `pnpm add @gridnexa/react`
+- Vue: `pnpm add @gridnexa/vue`
+- Angular: `pnpm add @gridnexa/angular`
+- JavaScript: `pnpm add @gridnexa/javascript`
+- Shared contracts/tooling: `pnpm add @gridnexa/core`
 
 ## Do I need to import CSS?
 
-Recommended:
+Yes, import the framework package CSS once in your app entry:
 
 ```ts
 import "@gridnexa/react/index.css";
 ```
 
-React also includes runtime style injection for core layout behavior, but importing CSS is still recommended for predictable production styling.
+The React package also injects runtime styles, but the CSS export keeps installed applications consistent with the playground. Use `unstyled` only when your design system owns every rule.
 
-## Does GridNexa support dark mode?
+## Which themes are supported?
 
-Yes.
+Use `theme="light"`, `theme="dark"`, or `theme="system"`. Density controls, CSS variables, stable class names, custom icons, and class callbacks support deeper customization.
 
-```tsx
-<GridNexa theme="dark" />
-```
+## Which files can GridNexa import?
 
-Supported themes:
+The import toolbar accepts Excel `.xlsx`/`.xls`, CSV, TSV, TXT, and JSON. Excel imports the first worksheet. Delimited text uses the first row as headers. JSON accepts an array of objects or `{ rows: [...] }`.
 
-- `light`
-- `dark`
-- `system`
+## Does GridNexa support charts?
 
-## Does GridNexa support undo and redo?
+Yes. Enable `toolbar={{ charts: true }}` or use the `charts` prop. Implemented types include bar, line, area, pie, donut, scatter, bubble, radar, radial bar, histogram, box plot, treemap, gauge, funnel, and combo charts. Charts can be downloaded as PNG.
 
-Yes.
+## What is Data Health?
 
-```tsx
-<GridNexa enableUndoRedo toolbar={{ undoRedo: true }} />
-```
+Data Health profiles visible columns for missing values, duplicates, validation failures, numeric outliers, top values, completeness, and quality scores. Selecting an issue filters to affected rows and focuses the first matching cell.
 
-## Does GridNexa support Excel-like fill handle?
+## Does GridNexa support undo, fill, and clipboard operations?
 
-Yes.
-
-```tsx
-<GridNexa enableFillHandle toolbar={{ fill: true }} />
-```
-
-## Does GridNexa support export?
-
-Yes.
-
-```tsx
-<GridNexa
-  toolbar={{
-    exportCsv: true,
-    exportExcel: true
-  }}
-/>
-```
+Yes. Use `enableUndoRedo`, `enableFillHandle`, and `enableRangeSelection`. Toolbar actions support copying, Excel-compatible range paste, bulk editing, and find and replace.
 
 ## What is Change Review?
 
-Change Review tracks edits, row additions, and row deletions before Save All.
+`changeReview` tracks edits, additions, and deletions before Save All. Combine it with validation and `blockSave` for review-oriented workflows.
 
-```tsx
-<GridNexa changeReview />
-```
+## Can GridNexa persist state?
 
-It is useful for admin tools, review workflows, finance tools, and business operations screens.
+Yes. `stateStorage` persists selected UI-state slices such as columns, filters, sort, pagination, and side-panel state. It does not persist row data. Saved views use a unique `views.key` and include a Default View.
 
-## What is Repro Recorder?
+## Can I export and import a repro snapshot?
 
-Repro Recorder exports a JSON snapshot of the current grid state.
+Yes. Enable `diagnostics={{ recorder: true, exportRepro: true }}`. Export through the Diagnostics panel or `apiRef.current?.exportDiagnostics()`; import through the panel or command palette.
 
-```tsx
-<GridNexa
-  diagnostics={{
-    recorder: true,
-    exportRepro: true
-  }}
-/>
-```
+Snapshots may include sampled application rows, so review them before sharing.
 
-It helps developers reproduce bugs faster.
+## Is AI support tied to a provider?
 
-## Can I import a repro JSON?
+No. The browser sends grid state to your configured server endpoint and receives a safe GridNexa action plan. Keep OpenAI, Azure OpenAI, Anthropic, Gemini, gateway, or local-model credentials on the server.
 
-Not directly yet.
+## Is GridNexa open source?
 
-You can manually use:
-
-```tsx
-<GridNexa
-  columns={repro.columns}
-  rows={repro.rows}
-/>
-```
-
-Direct repro import may be added later.
-
-## Is GridNexa good for internal tools?
-
-Yes. GridNexa is especially useful for:
-
-- admin panels
-- dashboards
-- internal tools
-- CRM screens
-- finance review tools
-- editable business tables
-
-## Is GridNexa a replacement for AG Grid?
-
-GridNexa is an alternative for teams that want a simpler, app-focused, multi-framework grid with built-in productivity and diagnostics features.
-
-AG Grid is very mature and has a broad enterprise feature set. GridNexa focuses on developer experience and common app workflows.
-
-## Is GridNexa a replacement for TanStack Table?
-
-GridNexa is different.
-
-TanStack Table is headless. GridNexa includes the UI and grid workflows out of the box.
-
-Use TanStack Table if you want full control and want to build the UI yourself.
-
-Use GridNexa if you want a ready-to-use app grid.
+The packages are publicly distributed through npm. The implementation repository may remain private during active development. This repository provides public documentation, issue tracking, roadmap, and package information.
 
 ## How do I report a bug?
 
-Open a GitHub issue and include:
-
-- package name
-- package version
-- framework version
-- browser
-- steps to reproduce
-- screenshots
-- diagnostics repro JSON if possible
-
-## What should I include in feature requests?
-
-Please include:
-
-- the problem
-- expected behavior
-- framework
-- example use case
-- screenshots or mockups if available
+Open a GitHub issue with the package and version, framework version, browser, reproduction steps, screenshots, and a reviewed diagnostics snapshot when possible.

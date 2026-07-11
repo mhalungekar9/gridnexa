@@ -1,169 +1,111 @@
 # GridNexa
 
-A developer-first Excel-like data grid for React, Vue, Angular, and JavaScript.
+A feature-rich, Excel-style data grid for React, Vue, Angular, and JavaScript.
 
-GridNexa helps developers ship polished data-heavy apps faster with built-in editing, filtering, undo/redo, export, saved views, change review, validation, diagnostics, and one-click repro export.
+GridNexa combines editing, import/export, charts, filtering, grouping, pivoting, diagnostics, Data Health, saved views, validation, and TypeScript-first APIs in packages designed for data-heavy applications.
 
-> GridNexa is distributed through public npm packages. The source repository is private while the project is in active development.
+> GridNexa is distributed through public npm packages. The implementation repository is private while the project is in active development.
+
+## Packages
+
+| Package | Use it for |
+| --- | --- |
+| [`@gridnexa/react`](https://www.npmjs.com/package/@gridnexa/react) | React applications |
+| [`@gridnexa/vue`](https://www.npmjs.com/package/@gridnexa/vue) | Vue 3 applications |
+| [`@gridnexa/angular`](https://www.npmjs.com/package/@gridnexa/angular) | Angular applications |
+| [`@gridnexa/javascript`](https://www.npmjs.com/package/@gridnexa/javascript) | Framework-free JavaScript/TypeScript |
+| [`@gridnexa/core`](https://www.npmjs.com/package/@gridnexa/core) | Shared models, contracts, and tooling |
+
+Current package version: **0.1.15**.
 
 ## Install
-
-### React
 
 ```bash
 pnpm add @gridnexa/react
 ```
-```ts
-import { GridNexa } from "@gridnexa/react";
+
+```tsx
+import { GridNexa, type Column } from "@gridnexa/react";
 import "@gridnexa/react/index.css";
 
-export function App() {
+interface Employee {
+  id: number;
+  name: string;
+  department: string;
+  score: number;
+}
+
+const columns: Column<Employee>[] = [
+  { id: "name", field: "name", headerName: "Name", editable: true, filter: "text" },
+  { id: "department", field: "department", headerName: "Department", filter: "set" },
+  { id: "score", field: "score", headerName: "Score", editable: true, filter: "number" },
+];
+
+const rows: Employee[] = [
+  { id: 1, name: "John Carter", department: "Operations", score: 92 },
+  { id: 2, name: "Alice Moreau", department: "Product", score: 87 },
+];
+
+export function EmployeesGrid() {
   return (
     <GridNexa
       columns={columns}
       rows={rows}
-      theme="dark"
+      getRowId={(row) => row.id}
       rowNumbers
       checkboxSelection
-      enableUndoRedo
+      enableRangeSelection
       enableFillHandle
-      toolbar={{
-        quickFilter: true,
-        find: true,
-        undoRedo: true,
-        filters: true,
-        columns: true,
-        saveAll: true,
-        exportCsv: true,
-        exportExcel: true
-      }}
-      diagnostics={{
-        recorder: true,
-        exportRepro: true
-      }}
+      enableUndoRedo
     />
   );
 }
 ```
-Packages
-1. React: @gridnexa/react
-2. Vue: @gridnexa/vue
-3. Angular: @gridnexa/angular
-4. JavaScript: @gridnexa/javascript
-5. Core: @gridnexa/core
 
-Features
-- React, Vue, Angular, and vanilla JavaScript support
-- Built-in dark and light themes
-- Sorting and filtering
-- Quick filter and advanced filters
-- Editable cells
-- Undo and redo
-- Fill handle
-- Copy and paste
-- Row numbers
-- Checkbox selection
-- Row reorder
-- Column resize, reorder, hide, pin, and auto-size
-- Saved views
-- Command palette
-- Change review before save
-- Validation and save blocking
+## Implemented Highlights
+
+- Excel, CSV, TSV, text, and JSON import
 - CSV and Excel export
-- Pagination
-- Grouping and pivot-style workflows
-- Tree data patterns
-- Diagnostics panel
-- One-click repro export
+- Range copy/paste, bulk edit, find and replace, fill handle, formulas, undo/redo
+- Bar, line, area, pie, donut, scatter, bubble, radar, radial, histogram, box plot, treemap, gauge, funnel, and combo charts with PNG download
+- Quick, column, set, number, and advanced filters
+- Column resize, reorder, pin/freeze, hide, auto-size, flex, and fill-width layouts
+- Grouping, aggregation, pivoting, summaries, tree data, master/detail, and transactions
+- Data Health profiling for missing values, duplicates, invalid cells, outliers, completeness, top values, and quality scores
+- Presets, saved views, persisted UI state, command palette, validation, and change review
+- Diagnostics with repro JSON export and import
+- Loading, error, and empty-state overlays
+- Provider-neutral AI action plans and server-side operation callbacks
+- Themes, density controls, CSS variables, stable classes, custom icons, and unstyled mode
 
-Repro Recorder
-GridNexa includes diagnostics and repro export for debugging complex grid issues.
+## Documentation
 
-```tsx
-<GridNexa
-  columns={columns}
-  rows={rows}
-  diagnostics={{
-    recorder: true,
-    exportRepro: true,
-    rowSampleSize: 50
-  }}
-/>
-```
+- [Getting started](docs/getting-started.md)
+- [React](docs/react.md)
+- [Vue](docs/vue.md)
+- [Angular](docs/angular.md)
+- [JavaScript](docs/javascript.md)
+- [Core](docs/core.md)
+- [Diagnostics](docs/diagnostics.md)
+- [FAQ](docs/faq.md)
+- [Comparison](docs/comparison.md)
+- [Roadmap](ROADMAP.md)
+- [Changelog](CHANGELOG.md)
 
-The exported JSON includes:
-- columns
-- sampled rows
-- visible rows
-- current grid state
-- filter/sort/page/column state
-- recent user actions
-- change review entries
-- browser info
-- generated React repro snippet
-This makes grid bugs easier to report, share, and reproduce.
+## Links
 
-Why GridNexa?
-Most grids give you rows and columns. Real applications need more:
-- users need saved views
-- admins need validation
-- operators need change review
-- developers need diagnostics
-- support teams need reproducible bug reports
-GridNexa includes these workflows as first-class features.
+- Website: https://www.gridnexa.in/
+- Docs and playground: https://www.gridnexa.in/docs/basic-grid
+- Help: https://www.gridnexa.in/help
 
-Comparison
-| Feature | GridNexa | AG Grid | MUI X Data Grid | TanStack Table | Handsontable |
-|---|---:|---:|---:|---:|---:|
-| React support | Yes | Yes | Yes | Yes | Yes |
-| Vue support | Yes | Yes | No main Vue grid | Headless/community | Yes |
-| Angular support | Yes | Yes | No | Headless/community | Yes |
-| Vanilla JavaScript support | Yes | Yes | No | Core/headless | Yes |
-| Styled UI included | Yes | Yes | Yes | No | Yes |
-| Excel-like editing | Yes | Yes | Yes | Build yourself | Yes |
-| Undo/redo | Yes | Yes | Yes | Build yourself | Yes |
-| Fill handle | Yes | Yes | Limited/varies | Build yourself | Yes |
-| Saved views | Yes | Custom/state APIs | Custom/state APIs | Build yourself | Custom |
-| Change review | Yes | Custom | Custom | Build yourself | Custom |
-| Command palette | Yes | Custom | Custom | Build yourself | Custom |
-| Repro export | Yes | Custom | Custom | Build yourself | Custom |
+## Feedback
 
-Use Cases
-GridNexa is useful for:
-- SaaS dashboards
-- admin panels
-- CRM screens
-- finance tools
-- operations tools
-- internal tools
-- editable business tables
-- spreadsheet-like web apps
-- data review workflows
+Use GitHub Issues in this public repository for bug reports, feature requests, documentation feedback, and integration questions. Include the package and version, framework version, browser, reproduction steps, and a diagnostics snapshot when possible.
 
-Links
-- npm React package: https://www.npmjs.com/package/@gridnexa/react
-- npm Vue package: https://www.npmjs.com/package/@gridnexa/vue
-- npm Angular package: https://www.npmjs.com/package/@gridnexa/angular
-- npm JavaScript package: https://www.npmjs.com/package/@gridnexa/javascript
-- Demo: coming soon
-- Docs: https://www.gridnexa.in/docs
+## License
 
-Status
-GridNexa is in active development. APIs may evolve as the package improves.
+MIT. See [LICENSE.md](LICENSE.md).
 
 ![GridNexa hero](assets/gridnexa-hero.svg)
 
 ![GridNexa dark grid](assets/dark-grid.svg)
-
-![Diagnostics export](assets/diagnostics-export.svg)
-
-![Repro Recorder](assets/repro-recorder.svg)
-
-![GridNexa comparison](assets/comparison.svg)
-
-Feedback
-Use GitHub Issues in this public repo for:
-- bug reports
-- feature requests
-- documentation feedback
-- integration questions

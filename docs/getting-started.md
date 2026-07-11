@@ -1,11 +1,8 @@
-
 # Getting Started
 
-GridNexa is a developer-first Excel-like data grid for React, Vue, Angular, and JavaScript.
+GridNexa is an Excel-style data grid for React, Vue, Angular, and framework-free JavaScript. Version 0.1.15 includes editing, import/export, charts, Data Health, grouping, pivoting, saved views, validation, diagnostics, and repro snapshot import/export.
 
-It includes editing, filtering, undo/redo, fill handle, export, saved views, change review, validation, diagnostics, and one-click repro export.
-
-## Packages
+## Choose A Package
 
 ```bash
 pnpm add @gridnexa/react
@@ -14,21 +11,30 @@ pnpm add @gridnexa/angular
 pnpm add @gridnexa/javascript
 ```
 
-Install only the package for your framework.
+Install only the framework package you need. Install `@gridnexa/core` directly when building wrappers, backend contracts, server-side grid operations, AI action plans, or cross-framework tooling.
 
-```jsx
-import { GridNexa } from "@gridnexa/react";
+## React Quick Start
+
+```tsx
+import { GridNexa, type Column } from "@gridnexa/react";
 import "@gridnexa/react/index.css";
 
-const columns = [
+type Employee = {
+  id: number;
+  name: string;
+  department: string;
+  score: number;
+};
+
+const columns: Column<Employee>[] = [
   { id: "name", field: "name", headerName: "Name", editable: true, filter: "text" },
   { id: "department", field: "department", headerName: "Department", filter: "set" },
   { id: "score", field: "score", headerName: "Score", editable: true, filter: "number" },
 ];
 
-const rows = [
+const rows: Employee[] = [
   { id: 1, name: "John Carter", department: "Operations", score: 92 },
-  { id: 2, name: "Jane Smith", department: "Marketing", score: 85 },
+  { id: 2, name: "Alice Moreau", department: "Product", score: 87 },
 ];
 
 export default function App() {
@@ -37,92 +43,54 @@ export default function App() {
       columns={columns}
       rows={rows}
       getRowId={(row) => row.id}
-      theme="dark"
       rowNumbers
       checkboxSelection
-      enableUndoRedo
+      enableRangeSelection
       enableFillHandle
-      toolbar={{
-        quickFilter: true,
-        find: true,
-        undoRedo: true,
-        filters: true,
-        columns: true,
-        saveAll: true,
-        exportCsv: true,
-        exportExcel: true
-      }}
-      diagnostics={{
-        recorder: true,
-        exportRepro: true
-      }}
+      enableUndoRedo
+      pageSize={20}
     />
   );
 }
 ```
 
-Core Concepts
-GridNexa works with two main inputs:
-- columns: describes fields, headers, filters, editors, widths, and tools.
-- rows: your data array.
+Import the package CSS once in your application entry. It contains the shared header layout, drag/reorder indicators, pinned-column rules, popovers, scrollbars, and theme variables. Use `unstyled` only when your design system supplies every rule.
 
-```jsx
-<GridNexa columns={columns} rows={rows} />
-```
+## Add Productivity Features
 
-Recommended Features To Enable
-```jsx
+```tsx
 <GridNexa
   columns={columns}
   rows={rows}
-  rowNumbers
-  checkboxSelection
-  enableUndoRedo
-  enableFillHandle
+  preset="admin"
   toolbar={{
-    quickFilter: true,
-    find: true,
-    undoRedo: true,
-    filters: true,
-    columns: true,
+    importData: true,
+    copyPaste: true,
+    bulkEdit: true,
+    findReplace: true,
+    charts: true,
+    dataHealth: true,
     exportCsv: true,
-    exportExcel: true
+    exportExcel: true,
   }}
+  views={{ key: "employees-grid-views" }}
+  commandPalette
+  changeReview
+  validation={{ blockSave: true, rules: { name: { required: true } } }}
+  diagnostics={{ recorder: true, exportRepro: true }}
+  dataHealth
 />
 ```
 
-Diagnostics And Repro Export
-```jsx
-<GridNexa
-  columns={columns}
-  rows={rows}
-  diagnostics={{
-    recorder: true,
-    exportRepro: true,
-    rowSampleSize: 50
-  }}
-/>
-```
+Keep column IDs and row IDs stable. Use a unique `views.key` or `stateStorage.key` for each unrelated grid.
 
-Diagnostics can export a JSON snapshot containing:
-- columns
-- sampled rows
-- visible rows
-- current grid state
-- filters and sorting
-- recent user actions
-- change review entries
-- generated React repro snippet
+## Framework Guides
 
-
-Framework Guides
 - [React](./react.md)
 - [Vue](./vue.md)
 - [Angular](./angular.md)
 - [JavaScript](./javascript.md)
+- [Core](./core.md)
 - [Diagnostics](./diagnostics.md)
 - [Comparison](./comparison.md)
-[FAQ](./faq.md)
-
-```
-
+- [FAQ](./faq.md)
