@@ -2,7 +2,7 @@
 
 ## What is GridNexa?
 
-GridNexa is an Excel-style data grid for React, Vue, Angular, and JavaScript. It includes editing, import/export, charts, filtering, grouping, pivoting, Data Health, saved views, validation, diagnostics, and repro snapshot import/export.
+GridNexa is an Excel-style data grid for React, Vue, Angular, and JavaScript. It includes editing, import/export, charts, generated dashboards, filtering, grouping, pivoting, Data Health, Trust Mode, collaboration, saved views, validation, accessibility, advanced styling, diagnostics, and repro snapshot import/export.
 
 ## Which package should I install?
 
@@ -24,7 +24,11 @@ The React package also injects runtime styles, but the CSS export keeps installe
 
 ## Which themes are supported?
 
-Use `theme="light"`, `theme="dark"`, or `theme="system"`. Density controls, CSS variables, stable class names, custom icons, and class callbacks support deeper customization.
+Built-in theme values are `modern-light`, `modern-dark`, `compact`, `minimal`, `enterprise`, `high-contrast`, `light`, `dark`, and `system`. Density controls, typed styling tokens, slot overrides, CSS variables, stable class names, custom icons, class callbacks, and `unstyled` mode support deeper customization.
+
+## Can I style individual columns and control long text?
+
+Yes. Columns accept `headerStyle` and `cellStyle`, including callback-based cell styles. Use `textDisplay` globally or per column for `ellipsis`, `clip`, or `wrap`, optional native tooltips, and line clamping.
 
 ## Which files can GridNexa import?
 
@@ -37,6 +41,22 @@ Yes. Enable `toolbar={{ charts: true }}` or use the `charts` prop. Implemented t
 ## What is Data Health?
 
 Data Health profiles visible columns for missing values, duplicates, validation failures, numeric outliers, top values, completeness, and quality scores. Selecting an issue filters to affected rows and focuses the first matching cell.
+
+## What is Trust Mode?
+
+Trust Mode explains the active value by showing its source, validation status, Data Health evidence, likely downstream impact, recent edit history, and a rollback action for the latest tracked edit.
+
+## What does Dashboard Generator create?
+
+Dashboard Generator analyzes visible rows and columns to create KPI cards, inferred summaries, configured dashboard charts, and insight notes. Configured charts support bar, line, area, pie, and donut types and update as visible data changes.
+
+## Does GridNexa support realtime collaboration?
+
+Yes. The `collaboration` prop accepts an application-owned provider and user identity. It supports cell-change events, presence badges, cell locks, and conflict modes, so applications can connect Socket.IO, WebSocket, Supabase Realtime, Firebase, Yjs, or an internal event bus.
+
+## Is GridNexa keyboard accessible?
+
+GridNexa supplies grid, row-group, and grid-cell semantics, active-cell announcements, and roving focus. It supports arrow and range navigation, Home/End, Ctrl/Cmd+Home/End, Page Up/Down, Enter/F2 editing, Escape cancellation, and Ctrl/Cmd+C copying.
 
 ## Does GridNexa support undo, fill, and clipboard operations?
 

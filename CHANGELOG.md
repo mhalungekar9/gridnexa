@@ -1,6 +1,32 @@
 
 # Changelog
 
+## 0.1.19
+
+- Added `modern-light`, `modern-dark`, `compact`, `minimal`, `enterprise`, and `high-contrast` themes alongside `light`, `dark`, and `system`.
+- Added typed styling tokens and slot-level style overrides.
+- Added per-column header and cell style contracts.
+- Added ellipsis, clip, wrap, tooltip, and line-clamp text display controls.
+- Expanded theme and styling playground examples.
+
+## 0.1.18
+
+- Added Dashboard Generator for KPI cards, inferred summaries, configured dashboard charts, and insight notes from visible rows.
+- Added configurable bar, line, area, pie, and donut dashboard charts.
+- Added Dashboard Generator playground and productivity-suite coverage.
+
+## 0.1.17
+
+- Added provider-based realtime collaboration with cell patches, presence, cell locks, and conflict modes.
+- Added accessible grid semantics, live announcements, and roving active-cell focus.
+- Added comprehensive keyboard navigation and clipboard shortcuts.
+- Added collaboration and developer-setup playground guidance.
+
+## 0.1.16
+
+- Added Trust Mode with active-cell source, validation evidence, Data Health signals, impact preview, edit history, and rollback.
+- Added Trust Mode playground and productivity-suite coverage.
+
 ## 0.1.15
 
 - Added Data Health profiling for missing values, duplicates, invalid cells, outliers, top values, completeness, and quality scores.

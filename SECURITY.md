@@ -13,3 +13,6 @@ Include:
 - version
 - reproduction steps
 - impact
+- whether the report contains sensitive data or a proof of concept
+
+Do not attach secrets, credentials, private row data, or unredacted diagnostics snapshots. Provide the minimum data needed to reproduce the issue and wait for a private coordination channel before sharing sensitive technical details.

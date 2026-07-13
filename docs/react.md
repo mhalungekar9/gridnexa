@@ -1,13 +1,13 @@
 # GridNexa React Data Grid | React Table | Excel Grid
 
-Feature-rich React data grid for teams that need more than a table: Excel import, copy/paste, inline editing, filters, pivoting, diagnostics, Data Health profiling, saved views, and TypeScript-first APIs.
+Feature-rich React data grid for teams that need more than a table: Excel import, copy/paste, inline editing, filters, pivoting, diagnostics, Data Health profiling, Trust Mode, Dashboard Generator, saved views, and TypeScript-first APIs.
 
 [![npm](https://img.shields.io/npm/v/@gridnexa/react?color=0ea5e9)](https://www.npmjs.com/package/@gridnexa/react)
 [![license](https://img.shields.io/npm/l/@gridnexa/react)](https://github.com/mhalungekar9/gridnexa)
 [![types](https://img.shields.io/badge/TypeScript-ready-3178c6)](https://www.typescriptlang.org/)
 [![website](https://img.shields.io/badge/website-gridnexa.in-2563eb)](https://www.gridnexa.in/)
 
-GridNexa gives React teams a polished grid foundation for data-heavy products: sorting, filtering, editing, formulas, grouping, pivoting, tree data, selection, import/export, styling hooks, diagnostics, Data Health, and safe AI-generated grid actions.
+GridNexa gives React teams a polished grid foundation for data-heavy products: sorting, filtering, editing, formulas, grouping, pivoting, tree data, selection, import/export, styling hooks, diagnostics, Data Health, Trust Mode, Dashboard Generator, and safe AI-generated grid actions.
 
 ## Why Developers Choose GridNexa
 
@@ -15,8 +15,10 @@ Most grid libraries make teams choose between a lightweight table and a heavywei
 
 - **Excel-style workflows built in**: import `.xlsx`, `.xls`, `.csv`, `.tsv`, `.txt`, and `.json`; copy/paste ranges from Excel; bulk edit; find and replace; export CSV and Excel.
 - **Insight charts from the grid**: turn selected ranges or visible rows into bar, line, area, pie, donut, scatter, bubble, radar, radial, histogram, box plot, treemap, gauge, funnel, and combo charts, then download charts as PNG.
+- **Dashboard Generator**: turn the current visible grid view into KPI cards, inferred chart summaries, configured dashboard charts, and generated insight notes.
 - **Debuggable by design**: diagnostics and repro snapshots let users export the grid state, sampled rows, recent actions, and a React repro JSON instead of sending vague bug reports.
 - **Data Health built in**: profile visible columns for missing values, duplicates, invalid cells, numeric outliers, completeness, top values, and quality scores.
+- **Trust Mode for active cells**: inspect source, validation status, Data Health signals, downstream impact, edit history, and rollback for the value the user is looking at.
 - **Productivity tools without glue code**: saved views, command palette, change review, validation, undo/redo, fill handle, row add/delete, and toolbar panels are first-class.
 - **Real data-grid depth**: column resize/reorder/pin/hide, filters, advanced filters, grouping, pivoting, tree data, master/detail, formulas, summaries, server-side callbacks, and transactions.
 - **Design-system friendly**: CSS variables, stable class names, custom icons, class callbacks, themes, density, and `unstyled` mode.
@@ -28,12 +30,15 @@ Most grid libraries make teams choose between a lightweight table and a heavywei
 | --- | --- |
 | Data import | Excel `.xlsx/.xls`, CSV, TSV, TXT, JSON, auto-detected column types |
 | Charts | Bar, line, area, pie, donut, scatter, bubble, radar, radial, histogram, box plot, treemap, gauge, funnel, combo charts with PNG download |
+| Dashboard | Generated KPI cards, dimension distribution, measure comparison, configured dashboard charts, and insight notes |
 | Clipboard | Copy, paste from Excel, paste ranges, append overflow rows, Clipboard API fallback |
 | Editing | Inline editors, bulk edit, fill handle, formulas, undo/redo, change review |
 | Search/filter | Quick filter, find, find & replace, column filters, set filters, advanced filters |
 | Layout | Resize, reorder, pin/freeze, hide/show, fill width, flex columns, merged headers |
 | Analytics | Grouping, aggregation, pivoting, summaries, tree data, master/detail |
 | Data quality | Data Health panel, missing values, duplicates, invalid cells, outliers, top values, quality scores |
+| Trust and audit | Trust Mode panel, active-cell source, quality evidence, impact preview, edit timeline, rollback |
+| Collaboration | Provider-based realtime cell patches, presence badges, cell locks, conflict modes |
 | Developer tools | Diagnostics panel, repro JSON export/import, command palette, typed API |
 | Styling | Themes, CSS variables, stable classes, custom icons, Bootstrap/Tailwind-friendly |
 
@@ -300,6 +305,7 @@ Copy this:
     rowSampleSize: 50,
   }}
   dataHealth
+  trustMode
 />
 ```
 
@@ -311,6 +317,7 @@ What this solves:
 - `validation` highlights invalid cells and can block Save All.
 - `diagnostics` exposes runtime counts, records recent grid actions, and can export/import a repro snapshot with sanitized columns, sampled rows, current grid state, change review entries, and a React example.
 - `dataHealth` profiles visible data for missing values, duplicates, invalid cells, outliers, top values, completeness, and per-column quality scores.
+- `trustMode` lets users inspect the active cell's source, validation state, Data Health score, likely downstream impact, edit history, and latest-value rollback.
 
 When to use:
 
@@ -348,6 +355,7 @@ export default function EmployeesGrid() {
       validation={{ rules: { name: { required: true } } }}
       diagnostics
       dataHealth
+      trustMode
     />
   );
 }
@@ -374,6 +382,95 @@ export default function EmployeesGrid() {
 Data Health helps users trust and clean data without leaving the grid. It reports missing values, duplicate values, validation failures, numeric outliers, top values, completeness, and a quality score for each visible column.
 
 Clicking an issue filters the grid to affected rows, focuses the first matching cell, and keeps the panel open. Once the issue is fixed, GridNexa automatically clears the temporary issue filter and restores the previous view. Users can also clear the issue filter or click Done to return to the original data.
+
+## Trust Mode
+
+```tsx
+<GridNexa
+  columns={columns}
+  rows={rows}
+  getRowId={(row) => row.id}
+  toolbar={{ trustMode: true, dataHealth: true, bulkEdit: true }}
+  trustMode={{ showPanel: true }}
+  dataHealth
+  validation={{
+    rules: {
+      name: { required: true },
+      score: { type: "number", min: 70, max: 100 },
+    },
+  }}
+/>
+```
+
+Trust Mode gives users active-cell confidence without leaving the grid. It shows the value source, validation status, Data Health evidence, likely impact on filters/summaries/charts/formulas, recent edit timeline, and a rollback action for the latest tracked cell edit.
+
+## Dashboard Generator
+
+```tsx
+<GridNexa
+  columns={columns}
+  rows={rows}
+  getRowId={(row) => row.id}
+  toolbar={{ dashboard: true, charts: true, filters: true }}
+  dashboard={{ showPanel: true, maxCards: 4, maxRows: 500 }}
+/>
+```
+
+Dashboard Generator scans the current visible rows and columns to infer dimensions and measures. It generates KPI cards, a top-segment distribution, a measure comparison chart, and concise insight notes that update as users filter, edit, or replace rows.
+
+Use `dashboard.charts` when you want exact dashboard charts instead of the default inferred pair:
+
+```tsx
+<GridNexa
+  columns={columns}
+  rows={rows}
+  getRowId={(row) => row.id}
+  preset="analytics"
+  dashboard={{
+    showPanel: true,
+    maxCards: 4,
+    maxRows: 500,
+    charts: [
+      { type: "bar", category: "region", value: "revenue", title: "Revenue by region" },
+      { type: "line", category: "month", value: "revenue", title: "Revenue trend" },
+      { type: "pie", category: "product", value: "deals", title: "Deals by product" }
+    ]
+  }}
+  toolbar={{ dashboard: true, filters: true, quickFilter: true }}
+/>
+```
+
+Configured dashboard charts group the current visible rows by `category` and sum the numeric `value` column. `category` and `value` can reference a column id, field, or header name. Supported dashboard chart types are `bar`, `line`, `area`, `pie`, and `donut`. The separate `charts` prop still controls the interactive Insight Charts panel.
+
+## Collaboration And Accessibility
+
+```tsx
+const provider = {
+  subscribe(handler) {
+    socket.on("grid-cell-event", handler);
+    return () => socket.off("grid-cell-event", handler);
+  },
+  publish(event) {
+    socket.emit("grid-cell-event", event);
+  },
+};
+
+<GridNexa
+  columns={columns}
+  rows={rows}
+  getRowId={(row) => row.id}
+  collaboration={{
+    user: { id: currentUser.id, name: currentUser.name, color: "#22c55e" },
+    provider,
+    showPresence: true,
+    conflictMode: "cell-lock",
+  }}
+/>
+```
+
+`collaboration` is provider-based so you can use Socket.IO, WebSocket, Supabase Realtime, Firebase, Yjs, or an internal event bus. GridNexa publishes local cell edits, paste updates, bulk edits, lock events, and unlock events. Incoming `cell-change` events patch matching rows by `getRowId`; incoming `cell-lock` and `presence` events show compact user badges on cells.
+
+Accessibility and keyboard support includes `role="grid"`, row groups, `gridcell` semantics, row/column indexes, `aria-activedescendant`, live status announcements, roving active-cell focus, arrow-key navigation, Shift+Arrow range extension, Home/End, Ctrl+Home/Ctrl+End, PageUp/PageDown, Enter/F2 to edit, Escape to cancel/clear selection anchor, and Ctrl/Cmd+C clipboard copy.
 
 ## Column And Range Summaries
 
@@ -489,6 +586,59 @@ Supported AI actions include quick filter, column filter, advanced filter, sort,
 
 Use Bootstrap, Tailwind, CSS Modules, SCSS, Less, or plain CSS through `className`, `classNames`, `getRowClassName`, `getCellClassName`, `getHeaderClassName`, `column.className`, `column.cellClassName`, and `column.headerClassName`.
 
+Built-in themes are `modern-light`, `modern-dark`, `compact`, `minimal`, `enterprise`, `high-contrast`, plus the compatible `light`, `dark`, and `system` values.
+
+```tsx
+<GridNexa
+  columns={[
+    {
+      id: "name",
+      field: "name",
+      headerName: "Employee",
+      headerStyle: {
+        fontSize: 13,
+        fontWeight: 900,
+        color: "#0f172a",
+        textAlign: "left",
+        textTransform: "uppercase",
+        iconSize: 14,
+        height: 42,
+      },
+      cellStyle: ({ row }) => ({
+        fontWeight: row.active ? 700 : 500,
+        color: row.active ? "#0f172a" : "#64748b",
+      }),
+      textDisplay: { overflow: "ellipsis", showTooltip: true },
+    },
+    {
+      id: "notes",
+      field: "notes",
+      headerName: "Notes",
+      minWidth: 220,
+      textDisplay: { overflow: "wrap", lineClamp: 2 },
+    },
+  ]}
+  rows={rows}
+  theme="enterprise"
+  density="compact"
+  styling={{
+    tokens: {
+      fontFamily: "Inter, system-ui, sans-serif",
+      primaryColor: "#1d4ed8",
+      selectedBackground: "#cfe0ff",
+      rowHeight: 38,
+      headerHeight: 42,
+      cellPaddingInline: 10,
+    },
+    headerCell: { fontSize: 12, fontWeight: 900 },
+    selectedRow: { background: "#dbeafe", color: "#0f172a" },
+    focusedCell: { borderColor: "#1d4ed8" },
+  }}
+/>
+```
+
+`textDisplay` supports `ellipsis`, `clip`, and `wrap` globally or per column. Ellipsis can show native tooltips, clip avoids ellipsis, and wrap supports line clamping with responsive row height behavior.
+
 ## Complete Feature List
 
 - Presets, saved views, loading/error/empty overlays, sorting, pagination, quick filter, column filters, external filters, and visual advanced filters
@@ -498,6 +648,9 @@ Use Bootstrap, Tailwind, CSS Modules, SCSS, Less, or plain CSS through `classNam
 - Column resize, aligned drag reorder, hide/show, pin/freeze, flex/fill-width columns, column menu, configurable side tools, and merged headers
 - Row grouping, aggregation, pivoting, tree data, master/detail, and transactions
 - Data Health profiling for missing values, duplicates, invalid cells, outliers, top values, and quality scores
+- Trust Mode for active-cell source, quality, impact, history, and rollback
+- Dashboard Generator for KPI cards, inferred summaries, configured dashboard charts, and generated insight notes from visible rows
+- Collaboration provider hooks, realtime cell patches, presence badges, cell locks, versioned conflict handling, and keyboard-first accessibility
 - Server-side operation callbacks for sorting, filtering, selection, pagination, grouping, pivoting, tree data, and transactions
 
 ## Related Packages

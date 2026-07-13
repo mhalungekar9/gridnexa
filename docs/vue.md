@@ -185,9 +185,9 @@ Built-in loading, error, and empty overlays appear inside the grid viewport with
 
 ## Feature Parity Note
 
-React is the reference package and currently has the fullest productivity layer: saved views UI, command palette, change review, validation UI, diagnostics panel, and Data Health panel.
+React is the reference package and currently has the fullest productivity layer: saved views UI, command palette, change review, validation UI, diagnostics panel, Data Health panel, Trust Mode panel, Dashboard Generator with configured dashboard charts, collaboration provider hooks, presence badges, cell locks, and keyboard-first accessibility semantics.
 
-The Vue package supports the shared core grid surface used in the playground: presets, overlays, sorting, filtering, editing, formulas, selection, range fill, undo/redo, column tools, grouping, pivoting, tree data, master/detail, export, AI actions, and server-side operation events. React-only productivity panels such as Data Health are planned for parity work before those docs are promoted for Vue.
+The Vue package supports the shared core grid surface used in the playground: presets, overlays, sorting, filtering, editing, formulas, selection, range fill, undo/redo, column tools, grouping, pivoting, tree data, master/detail, export, AI actions, and server-side operation events. React-only productivity panels and behaviors such as Data Health, Trust Mode, Dashboard Generator with `dashboard.charts`, and Collaboration are planned for parity work before those docs are promoted for Vue.
 
 ## Column And Range Summaries
 
@@ -250,6 +250,8 @@ Keep AI provider keys on your backend. GridNexa receives only safe action-plan J
 ## Styling And Classes
 
 Use `className`, `classNames`, `getRowClassName`, `getCellClassName`, `getHeaderClassName`, and column class callbacks to connect Vue apps to Bootstrap, Tailwind, CSS Modules, SCSS, Less, or plain CSS.
+
+Built-in themes include `modern-light`, `modern-dark`, `compact`, `minimal`, `enterprise`, `high-contrast`, plus compatible `light`, `dark`, and `system` values. Shared theme tokens power colors, typography, spacing, selected rows, focus states, headers, cells, toolbars, panels, and responsive layouts. Columns can use `headerStyle`, `cellStyle`, and `textDisplay` for targeted header/cell styling and `ellipsis`, `clip`, or `wrap` text behavior.
 
 GridNexa injects baseline runtime styles automatically. For the closest match to the playground and to keep bundlers aware of the stylesheet, import the package CSS once in your app entry:
 

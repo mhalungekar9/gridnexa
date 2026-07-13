@@ -1,6 +1,6 @@
 # Getting Started
 
-GridNexa is an Excel-style data grid for React, Vue, Angular, and framework-free JavaScript. Version 0.1.15 includes editing, import/export, charts, Data Health, grouping, pivoting, saved views, validation, diagnostics, and repro snapshot import/export.
+GridNexa is an Excel-style data grid for React, Vue, Angular, and framework-free JavaScript. Version 0.1.19 includes editing, import/export, charts, Dashboard Generator, Data Health, Trust Mode, collaboration, accessibility, advanced styling, grouping, pivoting, saved views, validation, diagnostics, and repro snapshot import/export.
 
 ## Choose A Package
 
@@ -69,7 +69,9 @@ Import the package CSS once in your application entry. It contains the shared he
     bulkEdit: true,
     findReplace: true,
     charts: true,
+    dashboard: true,
     dataHealth: true,
+    trustMode: true,
     exportCsv: true,
     exportExcel: true,
   }}
@@ -79,10 +81,13 @@ Import the package CSS once in your application entry. It contains the shared he
   validation={{ blockSave: true, rules: { name: { required: true } } }}
   diagnostics={{ recorder: true, exportRepro: true }}
   dataHealth
+  trustMode
 />
 ```
 
 Keep column IDs and row IDs stable. Use a unique `views.key` or `stateStorage.key` for each unrelated grid.
+
+Built-in themes include `modern-light`, `modern-dark`, `compact`, `minimal`, `enterprise`, `high-contrast`, `light`, `dark`, and `system`. Use `styling` for typed theme tokens and slot styles, and column `headerStyle`, `cellStyle`, and `textDisplay` for local presentation rules.
 
 ## Framework Guides
 

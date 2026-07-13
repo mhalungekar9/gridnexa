@@ -187,9 +187,9 @@ Built-in loading, error, and empty overlays render inside the grid viewport with
 
 ## Feature Parity Note
 
-React is the reference package and currently has the fullest productivity layer: saved views UI, command palette, change review, validation UI, diagnostics panel, and Data Health panel.
+React is the reference package and currently has the fullest productivity layer: saved views UI, command palette, change review, validation UI, diagnostics panel, Data Health panel, Trust Mode panel, Dashboard Generator with configured dashboard charts, collaboration provider hooks, presence badges, cell locks, and keyboard-first accessibility semantics.
 
-The JavaScript package supports the shared core grid surface used in the playground: presets, overlays, sorting, filtering, editing, formulas, selection, range fill, undo/redo, column tools, grouping, pivoting, tree data, master/detail, export, AI actions, and server-side operation callbacks. React-only productivity panels such as Data Health are planned for parity work before those docs are promoted for JavaScript.
+The JavaScript package supports the shared core grid surface used in the playground: presets, overlays, sorting, filtering, editing, formulas, selection, range fill, undo/redo, column tools, grouping, pivoting, tree data, master/detail, export, AI actions, and server-side operation callbacks. React-only productivity panels and behaviors such as Data Health, Trust Mode, Dashboard Generator with `dashboard.charts`, and Collaboration are planned for parity work before those docs are promoted for JavaScript.
 
 ## Column And Range Summaries
 
@@ -246,6 +246,8 @@ The browser sends grid state to your endpoint. Your server can use OpenAI, Azure
 ## Styling And Classes
 
 Use `className`, `classNames`, `getRowClassName`, `getCellClassName`, `getHeaderClassName`, and column-level class hooks to plug into Bootstrap, Tailwind, CSS Modules, SCSS, Less, or plain CSS.
+
+Built-in themes include `modern-light`, `modern-dark`, `compact`, `minimal`, `enterprise`, `high-contrast`, plus compatible `light`, `dark`, and `system` values. The shared `styling.tokens` contract can override key CSS variables such as `fontFamily`, `primaryColor`, `selectedBackground`, `rowHeight`, `headerHeight`, and `cellPaddingInline`; columns can use `headerStyle`, `cellStyle`, and `textDisplay` for targeted typography, alignment, ellipsis, clip, and wrap behavior.
 
 GridNexa injects runtime styles automatically. For the closest match to the playground and to keep bundlers aware of the stylesheet, import the package CSS once in your app entry:
 

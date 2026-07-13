@@ -1,6 +1,6 @@
 # Diagnostics And Repro Snapshots
 
-GridNexa diagnostics captures hard-to-reproduce grid states and recent user actions. Version 0.1.15 supports both exporting and importing repro JSON snapshots.
+GridNexa diagnostics captures hard-to-reproduce grid states and recent user actions. Version 0.1.19 supports both exporting and importing repro JSON snapshots.
 
 ## Enable Diagnostics
 
